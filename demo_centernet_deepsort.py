@@ -142,10 +142,10 @@ class Detector(object):
             fps =  1 / (end - start )
 
             avg_fps += fps
-            print("centernet time: {}s, fps: {}, avg fps : {}".format(end - start, fps,  avg_fps/frame_no))
+            print("centernet time: {：.03f}s, fps: {:.03f}, avg fps : {:.03f}".format(end - start, fps,  avg_fps/frame_no))
 
-            cv2.imshow("test", ori_im)
-            cv2.waitKey(1)
+            #cv2.imshow("test", ori_im)
+            #cv2.waitKey(1)
 
             if self.write_video:
                 self.output.write(ori_im)
@@ -158,8 +158,8 @@ if __name__ == "__main__":
     # if len(sys.argv) == 1:
     #     print("Usage: python demo_yolo3_deepsort.py [YOUR_VIDEO_PATH]")
     # else:
-    cv2.namedWindow("test", cv2.WINDOW_NORMAL)
-    cv2.resizeWindow("test", 800, 600)
+    #cv2.namedWindow("test", cv2.WINDOW_NORMAL)
+    #cv2.resizeWindow("test", 800, 600)
 
     #opt = opts().init()
     det = Detector(opt)
