@@ -142,7 +142,7 @@ class Detector(object):
             fps =  1 / (end - start )
 
             avg_fps += fps
-            print("centernet time: {：.03f}s, fps: {:.03f}, avg fps : {:.03f}".format(end - start, fps,  avg_fps/frame_no))
+            print("centernet time: {:.03f}s, fps: {:.03f}, avg fps : {:.03f}".format(end - start, fps,  avg_fps/frame_no))
 
             #cv2.imshow("test", ori_im)
             #cv2.waitKey(1)
