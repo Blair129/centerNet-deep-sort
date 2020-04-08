@@ -7,7 +7,7 @@ import os
 import cv2
 import numpy as np
 import sys
-CENTERNET_PATH = 'CENTERNET_PATH/deep-sort-plus-pytorch/CenterNet/src/lib/'
+CENTERNET_PATH = 'content/centerNet-deep-sort/CenterNet/src/lib/'
 
 sys.path.insert(0, CENTERNET_PATH)
 from detectors.detector_factory import detector_factory
@@ -32,7 +32,7 @@ def demo(opt):
         detector.pause = False
         while True:
             _, img = cam.read()
-            cv2.imshow('input', img)
+            #cv2.imshow('input', img)
             ret = detector.run(img)
             time_str = ''
             for stat in time_stats:
