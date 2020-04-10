@@ -1,6 +1,9 @@
 import numpy as np
 import cv2
 
+
+pts =[deque(maxlen = 30) for _ in range(9999)]
+
 COLORS_10 =[(144,238,144),(178, 34, 34),(221,160,221),(  0,255,  0),(  0,128,  0),(210,105, 30),(220, 20, 60),
             (192,192,192),(255,228,196),( 50,205, 50),(139,  0,139),(100,149,237),(138, 43,226),(238,130,238),
             (255,  0,255),(  0,100,  0),(127,255,  0),(255,  0,255),(  0,  0,205),(255,140,  0),(255,239,213),
@@ -45,6 +48,10 @@ def draw_bboxes(img, bbox, identities=None, offset=(0,0)):
         cv2.rectangle(img,(x1, y1),(x2,y2),color,3)
         cv2.rectangle(img,(x1, y1),(x1+t_size[0]+3,y1+t_size[1]+4), color,-1)
         cv2.putText(img,label,(x1,y1+t_size[1]+4), cv2.FONT_HERSHEY_PLAIN, 2, [255,255,255], 2)
+        center = (int((x1+x2)/2),int((y1+y2)/2))
+        pts[id].append(center)
+        thickness = 5
+        cv2.circle(img,  (center), 1, color, thickness)
     return img
 
 def softmax(x):
